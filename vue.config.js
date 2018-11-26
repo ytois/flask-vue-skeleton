@@ -1,5 +1,5 @@
-var path = require('path');
-var ManifestRevisionPlugin = require('manifest-revision-webpack-plugin');
+const path = require('path');
+const ManifestRevisionPlugin = require('manifest-revision-webpack-plugin');
 
 module.exports = {
   pages: {
@@ -17,5 +17,11 @@ module.exports = {
         }
       )
     ]
+  },
+  // disable output html
+  chainWebpack: config => {
+    config.plugins.delete('html-index');
+    config.plugins.delete('preload-index');
+    config.plugins.delete('prefetch-index');
   }
 };

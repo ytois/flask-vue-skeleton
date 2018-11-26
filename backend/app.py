@@ -19,10 +19,18 @@ def create_app(settings_override=None):
     app.jinja_env.add_extension('pyjade.ext.jinja.PyJadeExtension')
 
     # routing js/css
-    blueprint_js = Blueprint("javascript", __name__,
-                             static_url_path='/js', static_folder='./static/js')
+    blueprint_js = Blueprint(
+        "javascript",
+        __name__,
+        static_url_path='/js',
+        static_folder='./static/js'
+    )
     blueprint_css = Blueprint(
-        "css", __name__, static_url_path='/css', static_folder='./static/css')
+        "css",
+        __name__,
+        static_url_path='/css',
+        static_folder='./static/css'
+    )
 
     app.register_blueprint(blueprint_js)
     app.register_blueprint(blueprint_css)
