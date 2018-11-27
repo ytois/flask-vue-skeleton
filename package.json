@@ -28,6 +28,8 @@
     "eslint-plugin-vue": "^5.0.0-0",
     "manifest-revision-webpack-plugin": "^0.4.1",
     "prettier": "^1.15.2",
+    "pug": "^2.0.3",
+    "pug-plain-loader": "^1.0.0",
     "vue-template-compiler": "^2.5.17"
   },
   "eslintConfig": {
