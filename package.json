@@ -1,5 +1,5 @@
 {
-  "name": "skelton",
+  "name": "flask-vue-skeleton",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -38,10 +38,21 @@
       "node": true
     },
     "extends": [
+      "standard",
       "plugin:vue/essential",
-      "eslint:recommended"
+      "plugin:prettier/recommended"
     ],
-    "rules": {},
+    "plugins": ["vue"],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "semi": false,
+          "singleQuote": true,
+          "trailingComma": "es5"
+        }
+      ]
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }
