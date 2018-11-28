@@ -5,6 +5,7 @@ html(lang='ja')
         meta(http-equiv='X-UA-Compatible' content='IE=edge')
         meta(name='viewport' content='width=device-width,initial-scale=1.0')
         title flask-vue-skeleton
+        {{ stylesheet_tag('chunk-vendors') | safe }}
         {{ stylesheet_tag('index') | safe }}
     body
         block body
