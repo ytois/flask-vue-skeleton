@@ -1,0 +1,10 @@
+version: "2"
+
+services:
+  flask:
+    build: ./
+    container_name: flask-vue
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./:/var/www/
