@@ -4,7 +4,23 @@ services:
   flask:
     build: ./
     container_name: flask-vue
-    ports:
-      - "5000:5000"
     volumes:
       - ./:/var/www/
+    environment:
+      TZ: "Asia/Tokyo"
+      WORK_DIR: "/var/www"
+
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d/flask.conf:/etc/nginx/conf.d/flask.conf
+      - ./backend/tmp/:/var/www/backend/tmp/
+      - ./backend/log/:/var/www/backend/log/
+    links:
+      - flask
+    ports:
+      - "3001:3001"
+    environment:
+      TZ: "Asia/Tokyo"
+      WORK_DIR: "/var/www"
