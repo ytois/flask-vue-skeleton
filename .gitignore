@@ -3,6 +3,8 @@ node_modules
 /dist
 /backend/static
 /backend/secrets.py
+Pipfile.lock
+package-lock.json
 
 # local env files
 .env.local
