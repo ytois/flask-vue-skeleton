@@ -1,4 +1,4 @@
-version: "2"
+version: '2'
 
 services:
   flask:
@@ -6,21 +6,25 @@ services:
     container_name: flask-vue
     volumes:
       - ./:/var/www/
+      - socket:/var/tmp
+      - ./log/:/var/log/
     environment:
-      TZ: "Asia/Tokyo"
-      WORK_DIR: "/var/www"
+      TZ: 'Asia/Tokyo'
+      WORK_DIR: '/var/www'
 
   nginx:
     image: nginx:alpine
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx/conf.d/flask.conf:/etc/nginx/conf.d/flask.conf
-      - ./backend/tmp/:/var/www/backend/tmp/
-      - ./backend/log/:/var/www/backend/log/
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - socket:/var/tmp
+      - ./log/nginx/:/var/log/nginx/
     links:
       - flask
     ports:
-      - "3001:3001"
+      - '3001:3001'
     environment:
-      TZ: "Asia/Tokyo"
-      WORK_DIR: "/var/www"
+      TZ: 'Asia/Tokyo'
+
+volumes:
+  socket:
+    driver: 'local'
