@@ -8,9 +8,11 @@ verify_ssl = true
 [packages]
 flask = "*"
 flask-webpack = "*"
-pyjade = "*"
 flask-script = "*"
+pyjade = "*"
 flake8 = "*"
+autopep8 = "*"
+ipython = "*"
 
 [requires]
 python_version = "3.6"

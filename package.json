@@ -32,38 +32,13 @@
     "eslint-plugin-vue": "^5.0.0-0",
     "manifest-revision-webpack-plugin": "^0.4.1",
     "prettier": "^1.15.2",
+    "prettier-eslint": "^8.8.2",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "vue-eslint-parser": "^3.3.0",
     "vue-template-compiler": "^2.5.17"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "standard",
-      "plugin:vue/essential",
-      "plugin:prettier/recommended"
-    ],
-    "plugins": [
-      "vue"
-    ],
-    "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "semi": false,
-          "singleQuote": true,
-          "trailingComma": "es5"
-        }
-      ]
-    },
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
   },
   "postcss": {
     "plugins": {

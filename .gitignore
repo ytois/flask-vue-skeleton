@@ -5,8 +5,8 @@ node_modules
 /backend/secrets.py
 /backend/log/
 /backend/tmp/
-/Pipfile.lock
-/package-lock.json
+Pipfile.lock
+package-lock.json
 
 # local env files
 .env.local
