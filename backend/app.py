@@ -1,6 +1,8 @@
 from flask import Flask
 from flask_webpack import Webpack
 from routes import register_routes
+from models.database import init_db
+import models  # noqa
 import os
 
 
@@ -26,6 +28,9 @@ def create_app():
 
     # routing
     register_routes(app)
+
+    # init db
+    init_db(app)
 
     return app
 

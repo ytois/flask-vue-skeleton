@@ -25,6 +25,18 @@ services:
     environment:
       TZ: 'Asia/Tokyo'
 
+  pg:
+    image: postgres:9.6-alpine
+    volumes:
+      - db:/var/lib/postgresql/data
+      - ./docker-entrypoint:/docker-entrypoint-initdb.d/
+    ports:
+      - '5432:5432'
+    environment:
+      TZ: 'Asia/Tokyo'
+
 volumes:
   socket:
-    driver: 'local'
+    driver: local
+  db:
+    driver: local
