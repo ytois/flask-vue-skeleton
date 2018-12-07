@@ -2,8 +2,10 @@ version: '2'
 
 services:
   flask:
-    build: ./
     container_name: flask-vue
+    build:
+      context: ./
+      dockerfile: docker/Dockerfile
     volumes:
       - ./:/var/www/
       - socket:/var/tmp
@@ -11,6 +13,8 @@ services:
     environment:
       TZ: 'Asia/Tokyo'
       WORK_DIR: '/var/www'
+    links:
+      - redis
 
   nginx:
     image: nginx:alpine
@@ -18,20 +22,36 @@ services:
       - ./nginx/conf.d/:/etc/nginx/conf.d/
       - socket:/var/tmp
       - ./log/nginx/:/var/log/nginx/
-    links:
-      - flask
     ports:
       - '3001:3001'
     environment:
       TZ: 'Asia/Tokyo'
+    links:
+      - flask
 
   pg:
     image: postgres:9.6-alpine
     volumes:
       - db:/var/lib/postgresql/data
-      - ./docker-entrypoint:/docker-entrypoint-initdb.d/
+      - ./docker/entrypoint:/docker-entrypoint-initdb.d/
     ports:
       - '5432:5432'
+    environment:
+      TZ: 'Asia/Tokyo'
+
+  redis:
+    image: redis
+
+  worker:
+    build:
+      context: ./
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ./backend:/var/www/
+    command: celery -A worker.celery worker --loglevel=info
+    links:
+      - redis
+      - pg
     environment:
       TZ: 'Asia/Tokyo'
 
