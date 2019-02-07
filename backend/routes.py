@@ -1,14 +1,8 @@
 from flask import Blueprint
-from views.index import Index
-from views.login import Login, Logout
-from views.task import Task
-
+from root_app import app
 
 routes = [
-    {"view": Index, "url_prefix": "/"},
-    {"view": Login, "url_prefix": "/login"},
-    {"view": Logout, "url_prefix": "/logout"},
-    {"view": Task, "url_prefix": "/tasks"},
+    {"view": app, "url_prefix": "/"},
 ]
 
 
