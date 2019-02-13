@@ -8,6 +8,8 @@ html(lang='ja')
         {{ stylesheet_tag('chunk-vendors') | safe }}
         {{ stylesheet_tag('index') | safe }}
     body
+        include _flash
+
         block body
 
         {{ javascript_tag('chunk-vendors') | safe }}

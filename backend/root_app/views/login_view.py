@@ -20,12 +20,14 @@ class LoginView(FlaskView):
             flash('Login fail.')
             redirect(url_for('root.index_view'))
 
+        flash('Login success.')
         self._save_session(account.access_token)
         return redirect(next_url)
 
     @route('/logout')
     def logout(self):
         self._delete_session()
+        flash('Logout.')
         return redirect(url_for('root.index_view'))
 
     def _save_session(self, access_token):

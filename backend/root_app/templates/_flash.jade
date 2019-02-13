@@ -1,0 +1,4 @@
+- if get_flashed_messages()
+    ul.flash-message
+        - for message in get_flashed_messages()
+            li {{ message }}
