@@ -1,8 +1,8 @@
 from flask import Blueprint
-from root_app import app
+import root_app
 
 routes = [
-    {"view": app, "url_prefix": "/"},
+    root_app
 ]
 
 
@@ -18,4 +18,4 @@ def register_routes(app):
 
     # routing other
     for route in routes:
-        app.register_blueprint(route['view'], url_prefix=route['url_prefix'])
+        app.register_blueprint(route.app)

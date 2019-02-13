@@ -4,8 +4,6 @@ from services.google_oauth import GoogleOauthService
 
 
 class LoginView(FlaskView):
-    route_base = '/'
-
     @route('/login')
     def login(self):
         url = url_for('root.LoginView:callback', _external=True)
