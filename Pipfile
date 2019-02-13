@@ -4,6 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+flask-shell-ipython = "*"
 
 [packages]
 flask = "*"
@@ -11,6 +12,8 @@ flask-webpack = "*"
 flask-script = "*"
 flask-migrate = "*"
 flask-sqlalchemy = "*"
+flask-classy = "*"
+flask-oauthlib = "*"
 pyjade = "*"
 flake8 = "*"
 autopep8 = "*"
@@ -19,6 +22,7 @@ sqlalchemy = "*"
 psycopg2 = "*"
 celery = "*"
 redis = "~=2.10.6"
+requests = "*"
 
 [requires]
 python_version = "3.6"
