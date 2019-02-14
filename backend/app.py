@@ -3,6 +3,7 @@ import sys
 
 from flask import Flask
 from flask_webpack import Webpack
+from flask_debugtoolbar import DebugToolbarExtension
 
 import models  # noqa
 from models.database import init_db
@@ -33,6 +34,9 @@ class App:
 
         # init db
         init_db(app)
+
+        toolbar = DebugToolbarExtension()
+        toolbar.init_app(app)
 
         return app
 

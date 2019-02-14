@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 flask-shell-ipython = "*"
+flask-debugtoolbar = "*"
 
 [packages]
 flask = "*"
