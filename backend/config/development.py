@@ -1,3 +1,4 @@
+ENV = 'development'
 DEBUG = True
 DEVELOPMENT = True
 SECRET_KEY = b'\xf2\xeaz\x07\x1102\x80F\xf0\xc7\x8f\x8d\xa4Xq/t\x83\x8c\x94\x19\x1c\x97'

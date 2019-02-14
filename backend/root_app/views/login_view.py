@@ -11,12 +11,12 @@ class LoginView(FlaskView):
 
     @route('/callback')
     def callback(self):
-        next_url = request.args.get('next') or url_for('root.index_view')
+        next_url = request.args.get('next') or url_for('root.IndexView:index')
         account = GoogleOauthService().fetch_account()
 
         if not account.verify():
             flash('Login fail.')
-            redirect(url_for('root.index_view'))
+            redirect(url_for('root.IndexView:index'))
 
         flash('Login success.')
         self._save_session(account.access_token)
@@ -26,7 +26,7 @@ class LoginView(FlaskView):
     def logout(self):
         self._delete_session()
         flash('Logout.')
-        return redirect(url_for('root.index_view'))
+        return redirect(url_for('root.IndexView:index'))
 
     def _save_session(self, access_token):
         session['access_token'] = access_token
