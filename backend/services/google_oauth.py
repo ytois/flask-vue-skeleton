@@ -62,7 +62,11 @@ class GoogleAccount:
     def access_token(self):
         return self.credential['access_token']
 
-    def verify(self):
+    @property
+    def email(self):
+        return self.profile['email']
+
+    def verify_organization(self):
         if ('hd' in self.profile and
                 self.profile['hd'] == current_app.config['GOOGLE_APPS_DOMAIN']):
             return True
