@@ -2,7 +2,7 @@
 node_modules
 /log
 /backend/static
-/backend/secrets.py
+/backend/**/secrets.py
 Pipfile.lock
 package-lock.json
 

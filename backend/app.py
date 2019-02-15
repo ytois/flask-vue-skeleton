@@ -4,6 +4,7 @@ import sys
 from flask import Flask
 from flask_webpack import Webpack
 from flask_debugtoolbar import DebugToolbarExtension
+from flask_request_params import bind_request_params
 
 import models  # noqa
 from models.database import init_db
@@ -38,6 +39,8 @@ class App:
         toolbar = DebugToolbarExtension()
         toolbar.init_app(app)
 
+        app.before_request(bind_request_params)
+
         return app
 
     @classmethod
@@ -50,7 +53,7 @@ class App:
         else:
             app.config.from_object('config.development')
 
-        app.config.from_pyfile('secrets.py', silent=True)
+        app.config.from_pyfile('config.secrets', silent=True)
 
     @classmethod
     def _register_path(self, app):

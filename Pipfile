@@ -24,6 +24,7 @@ psycopg2 = "*"
 celery = "*"
 redis = "~=2.10.6"
 requests = "*"
+flask-request-params = "*"
 
 [requires]
 python_version = "3.6"

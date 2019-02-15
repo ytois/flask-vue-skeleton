@@ -13,7 +13,7 @@ class User(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now)
     updated_at = db.Column(db.DateTime, nullable=False,
                            default=datetime.now, onupdate=datetime.now)
-    invite_code = db.Column(db.String(16), unique=True)
+    invite_code = db.Column(db.String(128), unique=True)
 
     @classmethod
     def create_invite(cls, name, email):
@@ -22,7 +22,7 @@ class User(db.Model):
 
     @classmethod
     def generate_invite_code(cls):
-        return secrets.token_hex(nbytes=16)
+        return secrets.token_hex(nbytes=8)
 
     @property
     def invite_url(self):
